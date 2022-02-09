@@ -1,11 +1,25 @@
 version: '3'
 
+
+
+ 
+
+
 services:
   mongo:
     image: mongo:4.4
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
 
+nightscout-libre-link:
+    image: timoschlueter/nightscout-librelink-up
+    container_name: nightscout-libre-link
+    environment:
+      LINK_UP_USERNAME: "mail@example.com"
+      LINK_UP_PASSWORD: "mypassword"
+      NIGHTSCOUT_URL: "nightscout.yourdomain.com"
+      NIGHTSCOUT_API_TOKEN: "librelinku-123456789abcde"
+      
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
     container_name: nightscout
