@@ -12,7 +12,7 @@ services:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
 
 nightscout-libre-link:
-    image: timoschlueter/nightscout-librelink-up
+    image: dieschatten/nightscout-librelink-up
     container_name: nightscout-libre-link
     environment:
       LINK_UP_USERNAME: "mail@example.com"
